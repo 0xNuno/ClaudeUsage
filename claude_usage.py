@@ -171,11 +171,7 @@ class ClaudeUsageApp(rumps.App):
     def refresh_now(self, _):
         """Manual refresh triggered by user."""
         self.refresh(None)
-        rumps.notification(
-            title=APP_NAME,
-            subtitle="Refreshed",
-            message="Usage data updated."
-        )
+        print("Refreshed usage data")
 
     @rumps.clicked("Settings...")
     def open_settings(self, _):
@@ -240,9 +236,8 @@ class ClaudeUsageApp(rumps.App):
         if session_key and org_id:
             self.save_credentials(session_key, org_id)
             self.refresh(None)
-            rumps.notification(
-                title=APP_NAME,
-                subtitle="Settings Saved",
+            rumps.alert(
+                title="Settings Saved",
                 message="Credentials updated successfully."
             )
         else:
