@@ -79,16 +79,16 @@ class ClaudeUsageApp(rumps.App):
         self.api: Optional[ClaudeAPI] = None
         self.usage_data: Optional[Dict[str, Any]] = None
 
-        # Build menu
+        # Build menu (callbacks handled by @rumps.clicked decorators)
         self.menu = [
-            rumps.MenuItem("Session Limit", callback=None),
-            rumps.MenuItem("Weekly Limit", callback=None),
-            rumps.MenuItem("Sonnet Limit", callback=None),
+            rumps.MenuItem("Session Limit"),
+            rumps.MenuItem("Weekly Limit"),
+            rumps.MenuItem("Sonnet Limit"),
             None,  # Separator
-            rumps.MenuItem("Refresh Now", callback=self.refresh_now),
-            rumps.MenuItem("Settings...", callback=self.open_settings),
+            rumps.MenuItem("Refresh Now"),
+            rumps.MenuItem("Settings..."),
             None,  # Separator
-            rumps.MenuItem("Quit", callback=self.quit_app),
+            rumps.MenuItem("Quit"),
         ]
 
         # Load credentials and start
